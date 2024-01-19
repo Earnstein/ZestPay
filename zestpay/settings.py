@@ -9,10 +9,10 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-
+import os
 from pathlib import Path
 from decouple import config
-import os
+from django.contrib.messages import constants as messages
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -143,19 +143,24 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+# NOTIFICATION MESSAGE CONFIGURATION
+
+MESSAGE_TAGS = {
+    messages.ERROR: "danger",
+}
 
 
 # JAZZMIN SETTINGS
 
-JAZZMIN_SETTING = JAZZMIN_SETTINGS = {
+JAZZMIN_SETTINGS =  {
     # title of the window (Will default to current_admin_site.site_title if absent or None)
-    "site_title": "Earneats Admin",
+    "site_title": "Zestpay Admin",
 
     # Title on the login screen (19 chars max) (defaults to current_admin_site.site_header if absent or None)
-    "site_header": "Earneats",
+    "site_header": "Zestpay",
 
     # Title on the brand (19 chars max) (defaults to current_admin_site.site_header if absent or None)
-    "site_brand": "Earneats",
+    "site_brand": "Zestpay",
 
     # Logo to use for your site, must be present in static files, used for login form logo (defaults to site_logo)
     "login_logo": None,
@@ -172,10 +177,10 @@ JAZZMIN_SETTING = JAZZMIN_SETTINGS = {
     "site_icon": None,
     
     # Welcome text on the login screen
-    "welcome_sign": "Welcome to Earneats",
+    "welcome_sign": "Welcome to Zestpay",
 
     # Copyright on the footer
-    "copyright": "Acme Earneats Ltd",
+    "copyright": "Acme Zestpay Ltd",
     }
 
 # JAZZMIN_SETTINGS["show_ui_builder"] = True
