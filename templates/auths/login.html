@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %} 
+{% block content %} 
+
+<!-- component -->
+<div class="min-h-screen flex flex-col">
+  <div class="max-w-lg mx-auto flex-1 flex flex-col items-center justify-center px-2">
+      <div class="bg-white px-6 py-12 rounded shadow-md text-black w-full">
+        
+        <h1 class="mb-4 text-2xl text-center">Sign in</h1>
+        <h2 class="title text-center">Welcome back to Zestpay</h2>
+          <form method="POST">
+              {% csrf_token %}
+
+              <input 
+              type="text"
+              class="block border border-grey-light w-full p-3 rounded mb-4"
+              name="username"
+              placeholder="username" />
+
+          <input 
+              type="password"
+              class="block border border-grey-light w-full p-3 rounded mb-4"
+              name="password"
+              placeholder="Password" />
+
+              <button
+              id="form_btn"
+              type="submit"
+              >Log in
+            </button>
+          </form>
+
+          <div class="text-grey-dark mt-6 text-center">
+            Don't have an account? 
+            <a class="no-underline border-b border-blue text-blue" href="{% url "auths:index" %}">
+                Sign up
+            </a>.
+        </div>
+      </div>
+  </div>
+</div>
+
+<!-- Login Reg end -->
+
+{% endblock content %}
