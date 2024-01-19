@@ -4,17 +4,22 @@
 {% block content %} 
 
 <!-- component -->
-<div class="min-h-screen flex flex-col">
+     <!-- Load message-->
+
+   
+<div class="min-h-screen relative flex flex-col">
+  <div class="absolute show-notification">
+    {% include "includes/alert.html" %}
+  </div>
   <div class="max-w-lg mx-auto flex-1 flex flex-col items-center justify-center px-2">
       <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
-        <h1 class="mb-2 text-xl text-center">Sign up</h1>
-        <h2 class="title text-center">Welcome to Paylio</h2>
+        <h2 class="title text-center container">Sign Up</h2>
           <form method="POST">
               {% csrf_token %}
 
                 <div class="mb-3">
                   <div>
-                    <p>{{form.username.label_tag}}</p>
+                    <p class="font-montserrat">{{form.username.label_tag}}</p>
                     {{ form.username }}  
                      {{ form.username.errors }} 
                   </div>
@@ -23,7 +28,7 @@
             
                 <div class="mb-3">
                   <div>
-                    <p>{{form.email.label_tag}}</p>
+                    <p class="font-montserrat">{{form.email.label_tag}}</p>
                     {{ form.email }}  
                      {{ form.email.errors }} 
                   </div>
@@ -31,7 +36,7 @@
 
                 <div class="mb-3">
                   <div>
-                    <p>{{form.password1.label_tag}}</p>
+                    <p class="font-montserrat">{{form.password1.label_tag}}</p>
                     {{ form.password1 }}  
                      {{ form.password1.errors }} 
                   </div>
@@ -39,7 +44,7 @@
 
               <div class="mb-3">
                 <div>
-                  <p>{{form.password2.label_tag}}</p>
+                  <p class="font-montserrat">{{form.password2.label_tag}}</p>
                   {{ form.password2 }}  
                    {{ form.password2.errors }} 
                 </div>
@@ -54,7 +59,7 @@
 
           <div class="text-grey-dark mt-6 text-center">
             Already have an account? 
-            <a class="no-underline border-b border-blue text-blue" href="../login/">
+            <a class="no-underline border-b border-blue text-blue" href="{% url "auths:login" %}">
                 Log in
             </a>.
         </div>
@@ -68,8 +73,6 @@
               </a>
           </div>
       </div>
-
-      
   </div>
 </div>
 
