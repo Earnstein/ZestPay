@@ -214,7 +214,7 @@ JAZZMIN_UI_TWEAKS = {
 
 # COMPRESSOR SETTINGS
 
-COMPRESS_ROOT = os.path.join(BASE_DIR, 'zestpay', 'static')
+COMPRESS_ROOT = os.path.join(BASE_DIR, 'static')
 
 COMPRESS_ENABLED = True
 
