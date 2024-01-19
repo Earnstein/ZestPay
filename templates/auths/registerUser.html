@@ -1,11 +1,78 @@
-<form method="POST">
-  {% csrf_token %}
-  <div>
-    <div class="row">
-      {% for field in form %}
-        <div class="col">{{ field.as_field_group }}</div>
-      {% endfor %}
-    </div>
+{% extends 'base.html' %}
+{% load static %} 
+{% block navbar %}{% endblock navbar %} 
+{% block content %} 
+
+<!-- component -->
+<div class="min-h-screen flex flex-col">
+  <div class="max-w-lg mx-auto flex-1 flex flex-col items-center justify-center px-2">
+      <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
+        <h1 class="mb-2 text-xl text-center">Sign up</h1>
+        <h2 class="title text-center">Welcome to Paylio</h2>
+          <form method="POST">
+              {% csrf_token %}
+
+                <div class="mb-3">
+                  <div>
+                    <p>{{form.username.label_tag}}</p>
+                    {{ form.username }}  
+                     {{ form.username.errors }} 
+                  </div>
+                     
+                </div>
+            
+                <div class="mb-3">
+                  <div>
+                    <p>{{form.email.label_tag}}</p>
+                    {{ form.email }}  
+                     {{ form.email.errors }} 
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <div>
+                    <p>{{form.password1.label_tag}}</p>
+                    {{ form.password1 }}  
+                     {{ form.password1.errors }} 
+                  </div>
+              </div>
+
+              <div class="mb-3">
+                <div>
+                  <p>{{form.password2.label_tag}}</p>
+                  {{ form.password2 }}  
+                   {{ form.password2.errors }} 
+                </div>
+            </div>
+
+              <button
+              id="form_btn"
+              type="submit"
+              >Create Account
+            </button>
+          </form>
+
+          <div class="text-grey-dark mt-6 text-center">
+            Already have an account? 
+            <a class="no-underline border-b border-blue text-blue" href="../login/">
+                Log in
+            </a>.
+        </div>
+          <div class="text-center text-sm text-grey-dark mt-2">
+              By signing up, you agree to the 
+              <a class="no-underline border-b border-grey-dark text-grey-dark" href="#">
+                  Terms of Service
+              </a> and 
+              <a class="no-underline border-b border-grey-dark text-grey-dark" href="#">
+                  Privacy Policy
+              </a>
+          </div>
+      </div>
+
+      
   </div>
-  <button type="submit">submit</button>
-</form>
+</div>
+
+<!-- Login Reg end -->
+
+{% endblock content %}
